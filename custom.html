@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Art Website - Mural and Custom Mirror Work</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      form {
+        background-color: #06fc0e;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin: 50px auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+      input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #4CAF50;
+        color: rgb(23, 1, 1);
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #price {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Custom Mural Work</h1>
+    <form id="priceForm">
+      <label for="room">Room:</label>
+      <input type="text" id="room" name="room"><br><br>
+      <label for="wall">Wall:</label>
+      <input type="text" id="wall" name="wall"><br><br>
+      <label for="squarefootage">Square Footage:</label>
+      <input type="number" id="squarefootage" name="squarefootage"><br><br>
+      <button type="submit">Calculate Price</button>
+      <div id="price"></div>
+    </form>
+    <script>
+      document.getElementById('priceForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
+        var sqFootage = document.getElementById('squarefootage').value;
+        var price = sqFootage * 15.00;
+        document.getElementById('price').innerText = 'Estimated Price: $' + price.toFixed(2);
+      });
+    </script>
+  </body>
+</html>
